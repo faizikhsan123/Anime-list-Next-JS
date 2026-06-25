@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+img{
+    width: 100%;
+    min-height: 300px;
+    max-height: 350px;
+    height: auto;
+    transition: all 0.3s ease-in-out;
+}
+img:hover{
+    transform: scale(1.1);
+}
