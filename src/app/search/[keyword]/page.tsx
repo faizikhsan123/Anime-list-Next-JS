@@ -4,16 +4,17 @@ import Headers from "@/components/header";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Page = async ({ params }: any) => {
   const { keyword } = await params; //desctured params seperti { "keyword": "naruto" } menjadi "naruto"
-  console.log(keyword);
+  const decodeKeyword = decodeURIComponent(keyword); //agar urlnya tidak terencode yg awalnya "faity%20 tail" jadi "faity tail"
+ 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/anime?q=${keyword}`,
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/anime?q=${keyword}`, //pemanggilan tetap sama
   );
   const anime = await res.json();
 
   return (
     <div>
       <section>
-        <Headers title={`Pencarian untuk "${keyword}"`} />
+        <Headers title={`Pencarian untuk "${decodeKeyword}"`} /> 
 
         <AnimeList api={anime.data}></AnimeList>
       </section>

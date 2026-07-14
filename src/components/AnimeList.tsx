@@ -3,12 +3,12 @@ import Link from "next/link";
 import { TopAnime } from "../app/types/TopAnime";
 
 interface AnimeListProps {
-  // wajib membuat interface untuk props yang isinya data dari tipe TopAnime sebagai array kosong
+
   api: TopAnime[];
 }
 
 const AnimeList = ({ api }: AnimeListProps) => {
-  //isi dari interface di atas di panggil di bawah
+
 
   if (api.length === 0) {
     return (
@@ -21,8 +21,8 @@ const AnimeList = ({ api }: AnimeListProps) => {
     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
       {api.map((anime) => (
         <Link
-          key={anime.mal_id}
-          href={`/detail/${anime.mal_id}`}
+          key={anime.mal_id} 
+          href={`/detail/${anime.mal_id}`} //link navigasi ke detail dan tangkap idnya
           className="group flex flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/60 hover:shadow-xl hover:shadow-indigo-500/10"
         >
           <div className="relative overflow-hidden aspect-[2/3]">

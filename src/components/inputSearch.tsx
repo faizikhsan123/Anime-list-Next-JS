@@ -11,7 +11,7 @@ const InputSearch = () => {
   const handleSearchInput = (event: any) => {
     const valueSearch = searchRef.current?.value; //var untuk mengambil value yang diketik
     const keyDown = event.key; //var untuk mengetahui apa diketik di keyboard laptop
-    if (keyDown !== "Enter" || searchRef.current!.value === "") return; //jika tidak diketik enter atau value kosong maka tidak dijalankan
+    if (keyDown !== "Enter" || searchRef.current!.value === "" || valueSearch?.trim() === "") return; //jika tidak diketik enter atau value kosong maka tidak dijalankan
 
     router.push(`/search/${valueSearch}`);
 
